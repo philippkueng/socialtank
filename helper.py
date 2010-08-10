@@ -5,10 +5,8 @@ from storage import TWEETS
 
 # INPUT :: http://www.sample.co.uk:8080/folder/file.htm
 # OUTPUT :: http://www.sample.co.uk:8080
-
 def get_application_base_url(current_url):
-	#regex = '(https?://[-\w\.]+[\:[0-9]{5}]?)'
-	regex = '(https?://[-\w\.]+)'
+	regex = '(https?://[-\w\.]+(:[0-9]{4})?)'
 	match = re.search(regex, current_url)
 	if match:
 		return match.group(1)
