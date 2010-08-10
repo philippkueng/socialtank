@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 #
-# Copyright 2007 Google Inc.
+#
+# socialtank - backup your tweets on AppEngine
+# http://github.com/philippkueng/socialtank
+#
+# author:
+# Philipp Küng, http://philippkueng.ch, http://twitter.com/philippkueng
+#
+#
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,18 +21,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from google.appengine.ext import webapp
-from google.appengine.ext.webapp import util
 
+from google.appengine.ext import webapp
+from google.appengine.ext.webapp import util, template
+from google.appengine.ext.webapp.util import run_wsgi_app
+import os
+
+import sys
+sys.path.insert(0, 'tweepy.zip')
+
+import twitter_auth
+import twitter_backup
+from error import Error
 
 class MainHandler(webapp.RequestHandler):
     def get(self):
-        self.response.out.write('Hello world!')
-
+		values = {}
+		path = os.path.join(os.path.dirname(__file__), 'main.htm')
+		self.response.out.write(template.render(path, values))
 
 def main():
-    application = webapp.WSGIApplication([('/', MainHandler)],
-                                         debug=True)
+    application = webapp.WSGIApplication([('/', MainHandler),
+						('/twitter', twitter_auth.Authenticate_for_Twitter),
+						('/twitter/callback', twitter_auth.Authenticate_for_Twitter_Callback),
+						('/backup/past', twitter_backup.BackupPast), #only callable from the logic itself
+						('/error', Error)],
+                        debug=True)
     util.run_wsgi_app(application)
 
 
