@@ -1,0 +1,8 @@
+cron:
+- description: check for new recent tweets every hour (minus 1 API Call per hour for you)
+  url: /backup/present
+  schedule: every hour
+
+- description: backup 20 past tweets every 10 minutes (minus 6 API Calls per hour for you)
+  url: /backup/past
+  schedule: every 10 minutes
