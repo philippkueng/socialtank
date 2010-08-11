@@ -5,7 +5,7 @@
 # http://github.com/philippkueng/socialtank
 #
 # author:
-# Philipp Küng, http://philippkueng.ch, http://twitter.com/philippkueng
+# Philipp, http://philippkueng.ch, http://twitter.com/philippkueng
 #
 #
 #
@@ -32,20 +32,27 @@ sys.path.insert(0, 'tweepy.zip')
 
 import twitter_auth
 import twitter_backup
-from error import Error
+import show_tweets
+import error
 
 class MainHandler(webapp.RequestHandler):
     def get(self):
-		values = {}
-		path = os.path.join(os.path.dirname(__file__), 'main.htm')
-		self.response.out.write(template.render(path, values))
+		try:
+			values = {}
+			path = os.path.join(os.path.dirname(__file__), 'main.htm')
+			self.response.out.write(template.render(path, values))
+		except:
+			self.redirect('/error')
 
 def main():
-    application = webapp.WSGIApplication([('/', MainHandler),
+    application = webapp.WSGIApplication([('/', MainHandler),	
+						('/show', show_tweets.Default),
 						('/twitter', twitter_auth.Authenticate_for_Twitter),
 						('/twitter/callback', twitter_auth.Authenticate_for_Twitter_Callback),
+						('/backup/present', twitter_backup.BackupPresent), #only callable from the logic itself
 						('/backup/past', twitter_backup.BackupPast), #only callable from the logic itself
-						('/error', Error)],
+						('/error', error.Error),
+						('/.*', error.Error404)],
                         debug=True)
     util.run_wsgi_app(application)
 
