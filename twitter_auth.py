@@ -3,6 +3,7 @@ from google.appengine.ext import webapp
 from google.appengine.api import users
 from google.appengine.ext.webapp import RequestHandler, template
 from google.appengine.ext import db
+from google.appengine.api.labs import taskqueue
 import tweepy
 
 from datetime import datetime
@@ -67,7 +68,8 @@ class Authenticate_for_Twitter_Callback(webapp.RequestHandler):
 			user = USER(fullname = user_fullname, twitter_username = user_username, twitter_oauth_token_key = auth.access_token.key, twitter_oauth_token_secret = auth.access_token.secret)
 			user.put()
 			
-			self.response.out.write('Your twitter account was successfully connected to socialtank.<br/>Backup process starts now... ')
+			taskqueue.add(url='/backup/past', method='GET')
+			self.response.out.write('Your twitter account was successfully connected to socialtank.<br/>Backup process should start now... ')
 			
 		except tweepy.TweepError, e:
 			self.response.out.write('Sorry, there occurred an error during the authorization process with twitter. Please clear your browser cache and try again.<br/>')
