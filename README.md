@@ -20,7 +20,7 @@ socialtank is an open source Python webapp for backing up tweets. The service ru
 
 ### Deploy into the cloud
 
-1. Go to http://appspot.com register and create a new application.
+1. Go to <http://appspot.com> register and create a new application.
 
 2. Edit app.yaml on your local machine and change the application name from socialtank to whatever subdomain you've picked.
 
