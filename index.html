@@ -1,80 +1,90 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta charset="utf-8"/>
 
-	<title>philippkueng/socialtank @ GitHub</title>
+	<title>socialtank</title>
 	
 	<style type="text/css">
-		body {
-  		margin-top: 1.0em;
-  		background-color: #74ee7d;
-		  font-family: "Helvetica,Arial,FreeSans";
-  		color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-		h1 { font-size: 3.8em; color: #8b1182; margin-bottom: 3px; }
-		h1 .small { font-size: 0.4em; }
-		h1 a { text-decoration: none }
-		h2 { font-size: 1.5em; color: #8b1182; }
-    h3 { text-align: center; color: #8b1182; }
-    a { color: #8b1182; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-		pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
+	*{
+		padding: 0;
+		margin: 0;
+		font-family: sans-serif;
+	}
+	body{
+		background: rgba(160,160,160,.1);
+	}
+	#container{
+		width: 800px;
+		margin: 40px auto;
+	}
+	header h1{
+		font-size: 300%;
+		font-weight: 300;
+	}
+	header h1 a{
+		text-decoration: none;
+		color: #000;
+	}
+	header h1 a:hover{
+		color: #57a215;
+	}
+	header span{
+		color: rgba(160,160,160,.9);
+	}
+	#content{
+		padding-top: 40px;
+	}
+	#content a.button{
+		color: #fff;
+		text-decoration: none;
+		font-weight: 300;
+		padding: 14px 28px 14px 28px;
+		background: #57a215;
+		background:-webkit-gradient(linear, 50% 0, 50% 100%, from(#60a821), to(#55981b));
+		border-radius: 6px;
+		text-shadow: 0px -1px 1px rgba(50,50,50,.8);
+		-webkit-box-shadow: 0px 1px 1px rgba(50,50,50,.8);
+	}
+	#content a.button:hover{
+		background: #61b21a;
+		background:-webkit-gradient(linear, 50% 0, 50% 100%, from(#61b21a), to(#57a215));
+	}
+	#content span{
+		padding: 30px 0px 20px 130px;
+		display: block;
+		font-style:italic;
+	}
+	#content p{
+	}
+	#content p a{
+		text-decoration: none;
+		color: rgba(160,160,160,.9);
+	}
+	pre{
+		color: rgba(160,160,160,.9);
+		padding: 2px 0px 0px 0px;
+	}
 	</style>
 	
 </head>
 
 <body>
-  <a href="http://github.com/philippkueng/socialtank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
-
-  <div id="container">
-
-    <div class="download">
-      <a href="http://github.com/philippkueng/socialtank/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/philippkueng/socialtank/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
-
-    <h1><a href="http://github.com/philippkueng/socialtank">socialtank</a>
-      <span class="small">by <a href="http://github.com/philippkueng">philippkueng</a></span></h1>
-
-    <div class="description">
-      This is a Python App for Google AppEngine to backup personal tweets
-    </div>
-
-    <h2>Authors</h2>
-<p>@philippkueng (git@philippkueng.ch)<br/>Philipp Küng (i@philippkueng.ch)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>Philipp Küng (i@philippkueng.ch)<br/>      </p>
-
-
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/philippkueng/socialtank/zipball/master">zip</a> or
-      <a href="http://github.com/philippkueng/socialtank/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/philippkueng/socialtank</pre>
-    </p>
-
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/philippkueng/socialtank">philippkueng/socialtank</a>
-    </div>
-
-  </div>
-
-  
+	<a href="http://github.com/philippkueng/socialtank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+	
+	<div id="container">
+		<header>
+			<h1><a href="http://github.com/philippkueng/socialtank" title="get the source code for socialtank">socialtank</a></h1>
+			<span>backup your tweets with open source software</span>
+		</header>
+		<div id="content">
+			<a class="button" href="http://github.com/philippkueng/socialtank/zipball/master">Download the code now - It's Free!</a>
+			<span>or</span>
+			<p>you can clone the project with <a href="http://git-scm.com">git</a>
+		      by running:
+		      <pre>$ git clone git://github.com/philippkueng/socialtank</pre>
+		    </p>
+		</div>
+	</div>  
 </body>
 </html>
